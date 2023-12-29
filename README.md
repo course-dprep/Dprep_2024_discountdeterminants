@@ -1,6 +1,4 @@
-## When Do Discounts Matter? An Investigation of Potential Drivers of Discounts Elasticities Across Brands, Categories and Store Formats
+# When Do Discounts Matter? An Investigation of Potential Drivers of Discounts Elasticities Across Brands, Categories and Store Formats
 
-
-
-#Abstract:
+## Abstract:
 Most quantitative research papers model the effect of price promotions as the effect of changes in the final retail price while consumer behavior research suggests the potential framing phenomena in which customers can evaluate retail price and discounts differently. By taking this behavioral assumption in the sales-response model, we can estimate the discounts’ elasticities apart from price elasticities and investigate its systematic drivers from brand factors, category factors and store formats using second-stage regression. Using detailed scanner data from a membership database of an established grocery retailer across 28 categories and three formats, we found that discounts are most effective in a hypermarket format followed by a supermarket and a convenience store. The elasticities are more responsive to categories with higher dependency on discounts and fewer unique items promoted. While the average size of discounts in the category is insignificant, the brand’s size of discounts is positively influential to the discounts elasticity. Yet, offering discounts too often can decrease its discounts’ elasticities as well.
