@@ -223,20 +223,21 @@ We compare customer purchasing behaviors pre and post the online channel introdu
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
     theme_minimal() +
-    labs(x = "Change of discounts", y = "Change of volume sold", color = "Format")
+    labs(title = "Effect of discounts on sales for brand A", x = "Change of discounts", y = "Change of volume sold", color = "Format")
   
-  ggplot(df_bybrand_formats[brand == "A",], aes(x = davgfinalprice, y = dtotalvolume, color = format)) +
+  ggplot(df_bybrand_formats[format == "supermarket",], aes(x = davgdiscount, y = dtotalvolume, color = brand)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
     theme_minimal() +
-    labs(x = "Change of final price", y = "Change of volume sold", color = "Format")
+    labs(title = "Effect of discounts on sales in supermarket",x = "Change of discounts", y = "Change of volume sold", color = "Brand")
 
 ```
 </details>
-<figure><img src="img/modelfree_price.png"><figcaption></figcaption></figure>
-<figure><img src="img/modelfree_discounts.png"><figcaption></figcaption></figure>
 
-* Varying effect of price and discounts of brand A across formats
+<figure><img src="img/modelfree_discounts_format.png"><figcaption></figcaption></figure>
+<figure><img src="img/modelfree_discounts_brand.png"><figcaption></figcaption></figure>
+
+* Varying effect of price and discounts across brands and formats
 
 ### Data transformation (II)
 As we are interested in how brand factors, category factors and store format influence discount elasticity (see framework below), we need to calculate relevant variables regarding brand and category.

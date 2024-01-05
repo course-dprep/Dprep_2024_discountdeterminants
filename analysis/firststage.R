@@ -131,18 +131,18 @@ df_bybrand[, depth := avgdiscount/avgregprice]
     davgcompdiscount = avgcompdiscount - avgcompdiscount1
   )]
 
-#Plot model-free
+#Plot model-free (by brand and format)
   ggplot(df_bybrand_formats[brand == "A",], aes(x = davgdiscount, y = dtotalvolume, color = format)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
     theme_minimal() +
-    labs(x = "Change of discounts", y = "Change of volume sold", color = "Format")
+    labs(title = "Effect of discounts on sales for brand A", x = "Change of discounts", y = "Change of volume sold", color = "Format")
   
-  ggplot(df_bybrand_formats[brand == "A",], aes(x = davgfinalprice, y = dtotalvolume, color = format)) +
+  ggplot(df_bybrand_formats[format == "supermarket",], aes(x = davgdiscount, y = dtotalvolume, color = brand)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE) +
     theme_minimal() +
-    labs(x = "Change of final price", y = "Change of volume sold", color = "Format")
+    labs(title = "Effect of discounts on sales in supermarket",x = "Change of discounts", y = "Change of volume sold", color = "Brand")
 
 #Calculate Brand Level Factor  
   
