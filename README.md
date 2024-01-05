@@ -163,9 +163,10 @@ df_bybrand[, depth := avgdiscount/avgregprice]
       df_own = df_own[df_competitorinfo, on = "week_nr"]
       
       # Add lagged variables
+      df_own <- df_own[order(week_nr)] #Make sure that week_nr is ordered correctly before applying the lag
       lag_vars = c("totalvolume", "totalvalue", "LL", "avgfinalprice", "avgregprice", "avgdiscount", "avgcompLL", "avgcompfinalprice", "avgcompregprice", "avgcompdiscount")
       for (var in lag_vars) {
-        df_own[, (paste0(var, "1")) := shift(get(var), 1, type = "lag"), by = brand]
+        df_own[, paste0(var, "1") := shift(get(var), 1, type = "lag"), by = .(brand, format)]
       }
       
       df_own <- na.omit(df_own)
@@ -463,17 +464,18 @@ summary(fixedSecondStageLS)
 
 | Variable                 | Coefficient   |
 |--------------------------|---------------|
-| Hypermarket        | -18.194 (10.146) |
-| Supermarket        | 2.529 (11.054)  |
-| BrandDiscountDepth    | 4.816 (4.799)    |
-| BrandDiscountBreadth   | 1.142 (1.685)    |
-| log(frequency)           | 10.446 (77.705) |
+| Hypermarket        | -19.1804  (12.3323) |
+| Supermarket        | 5.1736    (13.3060)  |
+| BrandDiscountDepth    | 5.9182     (5.8236)   |
+| BrandDiscountBreadth   | 0.5242     (2.0421)    |
+| log(frequency)           | 27.3394    (94.4796) |
 | Private Label                      | -8.750 (6.873)   |
-| Constant                 | -162.956 (359.081) |
+| Constant                 | -8.5414     (8.3549) |
 
 **Note:**  
 *p<0.1; **p<0.05; ***p<0.01
 
 * E.g. supermarket seems to be more effective in term of offering discounts compared to convenience store (and hypermarket)
+* E.g. Brand that offers high discounts seem to be more effective
 * None of these factors are significant
 
