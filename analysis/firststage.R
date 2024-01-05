@@ -101,9 +101,10 @@ df_bybrand[, depth := avgdiscount/avgregprice]
       df_own = df_own[df_competitorinfo, on = "week_nr"]
       
       # Add lagged variables
+      df_own <- df_own[order(week_nr)] #Make sure that week_nr is ordered correctly before applying the lag
       lag_vars = c("totalvolume", "totalvalue", "LL", "avgfinalprice", "avgregprice", "avgdiscount", "avgcompLL", "avgcompfinalprice", "avgcompregprice", "avgcompdiscount")
       for (var in lag_vars) {
-        df_own[, (paste0(var, "1")) := shift(get(var), 1, type = "lag"), by = brand]
+        df_own[, paste0(var, "1") := shift(get(var), 1, type = "lag"), by = .(brand, format)]
       }
       
       df_own <- na.omit(df_own)
