@@ -214,7 +214,6 @@ df_bybrand[, depth := avgdiscount/avgregprice]
 
 
 ### Model-free Evidence
-We compare customer purchasing behaviors pre and post the online channel introduction.
 <details>
   <summary>Plot relationship between quantity sold and regular prices and discounts  by brand</summary>
 
