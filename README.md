@@ -1,6 +1,6 @@
 # (Dprep 2024) When Do Discounts Matter? An Investigation of Potential Drivers of Discounts Elasticities Across Brands, Categories and Store Formats
 
-## Author:
+# Author:
 Tanetpong (Ned) Choungprayoon
 
 # Objective
@@ -28,19 +28,18 @@ The purpose of this repository is to serve as a reproducible, end-to-end workflo
     ├── Simulate_Data.R
     ├── df.csv
 ├── gen
-   ├── analysis
-      ├──firststage
-      ├──secondstage
-   ├── data-preparation.R
-   ├── audit.R
-   └── report.Rmd
+   ├──firststage
+   ├──secondstage
+   ├── data-preparation
+   ├── audit
+   └── report.pdf
 └── src
    ├── analysis
       ├──firststage.R
       ├──secondstage.R
       ├──report.Rmd
-   ├── data-preparation
-   └── audit
+   ├── data-preparation.R
+   └── audit.R
 ├── .gitignore
 ├── README.md
 ├── makefile
