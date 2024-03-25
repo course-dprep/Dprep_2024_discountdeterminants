@@ -16,7 +16,7 @@ The purpose of this repository is to serve as a reproducible, end-to-end workflo
 
 `data` contains *df.csv* which is simulated data, similar to our data structure (i.e. scanner data), used for the walkthrough and report and *Simulate_Data.R* illustrating how data is simulated
 
-`src` contains R code used for transforming and aggregating data (*data-preparation.R*), auditing data (*audit.R*), running first-stage analysis (*firststage.R*) and second-stage analysis (*secondstage.R*) and generating report for the project (*report.Rmd*)
+`src` contains R code used for transforming and aggregating data (*data-preparation.R*), auditing data (*audit.R*), running first-stage analysis (*firststage.R*) and second-stage analysis (*secondstage.R*) and generating report for the project (*gen_report.R*)
 
 `gen` contains data, images and results generated from source codes
 
@@ -38,6 +38,7 @@ The purpose of this repository is to serve as a reproducible, end-to-end workflo
       ├──firststage.R
       ├──secondstage.R
       ├──report.Rmd
+      ├──gen_report.Rmd
    ├── data-preparation.R
    └── audit.R
 ├── .gitignore
@@ -68,7 +69,7 @@ The purpose of this repository is to serve as a reproducible, end-to-end workflo
   - *../src/audit.R* to audit raw and aggregate data
   - *../src/analysis/firststage.R* to run first-stage analysis 
   - *../src/analysis/secondstage.R* to run second-stage analysis 
-  - *../src/analysis/firststage.R* to generate final report in pdf format 
+  - *../src/analysis/gen_report.R* to generate final report in pdf format 
 
 # Walkthrough with simulated data
 ### Required package
