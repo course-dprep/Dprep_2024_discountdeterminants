@@ -1,26 +1,77 @@
-# When Do Discounts Matter? An Investigation of Potential Drivers of Discounts Elasticities Across Brands, Categories and Store Formats
+# (Dprep 2024) When Do Discounts Matter? An Investigation of Potential Drivers of Discounts Elasticities Across Brands, Categories and Store Formats
 
-### Author:
+## Author:
 Tanetpong (Ned) Choungprayoon
 
-## Abstract:
-Most quantitative research papers model the effect of price promotions as the effect of changes in the final retail price while consumer behavior research suggests the potential framing phenomena in which customers can evaluate retail price and discounts differently. By taking this behavioral assumption in the sales-response model, we can estimate the discounts’ elasticities apart from price elasticities and investigate its systematic drivers from brand factors, category factors and store formats using second-stage regression. Using detailed scanner data from a membership database of an established grocery retailer across 28 categories and three formats, we found that discounts are most effective in a hypermarket format followed by a supermarket and a convenience store. The elasticities are more responsive to categories with higher dependency on discounts and fewer unique items promoted. While the average size of discounts in the category is insignificant, the brand’s size of discounts is positively influential to the discounts elasticity. Yet, offering discounts too often can decrease its discounts’ elasticities as well.
+# Objective
+This repository is a partial replication of the [complementary repository of my empirical research project conducted as part of my doctoral dissertation](https://github.com/tanetpongc/discountdeterminants). It serves as a reproducible, end-to-end workflow on GitHub, featuring a well-structured and fully automated pipeline for data exploration & cleaning, analysis, and deployment. This repository is submitted as a project for [Data Preparation and Workflow Management course](https://github.com/course-dprep) at Tilburg University for Spring 2024 instructed by [Hannes Datta](https://www.hannesdatta.com/).
 
-## Overview
-The purpose of this repository is to publish the empirical research project conducted as part of my doctoral dissertation and to make the analysis part (with R) accessible, potentially inspiring further study. [The slides related to this study](https://github.com/tanetpongc/discountdeterminants/blob/95bcba3600df41998e394ced775a3bf51d228284/slide_deck/Slides_discountdeterminants.pdf) are also available in this repository. The empirical data is obtained from the retailer and stored via **AWS** and retrieve using (Postgre) **SQL**. This project is supported by Torsten Söderbergs Stiftelse.
 
-`slide_deck` contains the most updated slides
+# Project Summary
+Most quantitative research papers model the effect of price promotions as the effect of changes in the final retail price while consumer behavior research suggests the potential framing phenomena in which customers can evaluate retail price and discounts differently. By taking this behavioral assumption in the sales-response model, we can estimate the discounts’ elasticities apart from price elasticities and investigate its systematic drivers from brand factors, category factors and store formats using second-stage regression. Using replicable simulated data (as I cannot share an actual data), I attempted to show that discounts are not equally effective across brands, categories and store format and I can estimate their differential effects. 
 
-`data` contains *df.csv* which is simulated data, similar to our data structure (i.e. scanner data), used for the walkthrough and *Simulate_Data.R* illustrating how data is simulated
+# Overview
+The purpose of this repository is to serve as a reproducible, end-to-end workflow on GitHub, featuring a well-structured and fully automated pipeline for data exploration & cleaning, analysis, and deployment. Besides a walkthrough illustrated in this repository, I provide an R code that can generate pdf report of this project.
 
-`analysis` contains R code used for first-stage analysis (*firststage.R*) and second-stage analysis (*secondstage.R*)
 
-`gen` contains example of results generated from first-stage analysis (*df_firststage.csv*) subsequently used for second-stage analysis
+`data` contains *df.csv* which is simulated data, similar to our data structure (i.e. scanner data), used for the walkthrough and report and *Simulate_Data.R* illustrating how data is simulated
+
+`src` contains R code used for transforming and aggregating data (*data-preparation.R*), auditing data (*audit.R*), running first-stage analysis (*firststage.R*) and second-stage analysis (*secondstage.R*) and generating report for the project (*report.Rmd*)
+
+`gen` contains data, images and results generated from source codes
 
 `img` contains visualization used in the walkthrough
 
+# Structure of the repository
+```
+├── data
+    ├── Simulate_Data.R
+    ├── df.csv
+├── gen
+   ├── analysis
+      ├──firststage
+      ├──secondstage
+   ├── data-preparation.R
+   ├── audit.R
+   └── report.Rmd
+└── src
+   ├── analysis
+      ├──firststage.R
+      ├──secondstage.R
+      ├──report.Rmd
+   ├── data-preparation
+   └── audit
+├── .gitignore
+├── README.md
+├── makefile
+```
 
-## Walkthrough with simulated data
+# Dependencies
+- R 
+   - R Markdown, R script
+   - Install R required package
+    ```R
+      install.packages("data.table")
+      install.packages("ggplot2")
+    ``` 
+- Gnu Make
+   - Makefile
+- Git Bash
+- GitHub
+
+# Running the project
+
+- Fork this repository
+- Type "make" in the command prompt and run
+- Run manually
+  - *../data/Simulated_Data.R* to simulate data for this project
+  - *../src/data-preparation.R* to clean, filter and aggregate data
+  - *../src/audit.R* to audit raw and aggregate data
+  - *../src/analysis/firststage.R* to run first-stage analysis 
+  - *../src/analysis/secondstage.R* to run second-stage analysis 
+  - *../src/analysis/firststage.R* to generate final report in pdf format 
+
+# Walkthrough with simulated data
 ### Required package
 For this project, we mainly use `data.table` for data aggregation and `ggplot2` for visualization. Honestly, most of the work involves data transformation and operationalization (i.e., transforming customer scanner data into brand, category and store-format data)
 
